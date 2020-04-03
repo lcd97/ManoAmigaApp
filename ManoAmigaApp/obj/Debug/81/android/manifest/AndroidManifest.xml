@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="ManoAmigaApp.ManoAmigaApp" android:installLocation="auto">
+  <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="27" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.CAMERA" />
+  <uses-feature android:name="android.hardware.camera" android:required="false" />
+  <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+  <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/MyTheme" android:name="android.app.Application" android:debuggable="true">
+    <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver" android:exported="false" />
+    <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
+      <intent-filter>
+        <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+        <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+        <category android:name="ManoAmigaApp.ManoAmigaApp" />
+      </intent-filter>
+    </receiver>
+    <activity android:label="Activity1" android:name="md5d0cb87705b0c8222e7e4bf1acd7af6af.Activity1" />
+    <activity android:label="ActivityChart" android:name="md5d0cb87705b0c8222e7e4bf1acd7af6af.ActivityChart" />
+    <activity android:label="" android:name="md5d0cb87705b0c8222e7e4bf1acd7af6af.ActivityContact" />
+    <activity android:label="ActivityFeedBack" android:theme="@style/AppTheme" android:name="md5d0cb87705b0c8222e7e4bf1acd7af6af.ActivityFeedBack" />
+    <activity android:label="ActivityNotifications" android:name="md5d0cb87705b0c8222e7e4bf1acd7af6af.ActivityNotifications" />
+    <activity android:label="Administrativo" android:theme="@style/AppTheme" android:name="md5d0cb87705b0c8222e7e4bf1acd7af6af.ActivityOperationsAdmin" />
+    <activity android:label="Cliente" android:theme="@style/AppTheme" android:name="md5d0cb87705b0c8222e7e4bf1acd7af6af.ActivityOperationsCustomer" />
+    <activity android:label="PERFIL" android:name="md5d0cb87705b0c8222e7e4bf1acd7af6af.ActivityPersonalizacion" />
+    <activity android:label="" android:name="md5d0cb87705b0c8222e7e4bf1acd7af6af.AddBookActivity" />
+    <activity android:label="" android:name="md5d0cb87705b0c8222e7e4bf1acd7af6af.AddCopyActivity" />
+    <activity android:label="CopiesAddActivity" android:name="md5d0cb87705b0c8222e7e4bf1acd7af6af.CopiesAddActivity" />
+    <activity android:label="@string/app_name" android:theme="@style/AppTheme" android:name="md5d0cb87705b0c8222e7e4bf1acd7af6af.MainActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <service android:name="md5d0cb87705b0c8222e7e4bf1acd7af6af.MyFirebaseIDInstance">
+      <intent-filter>
+        <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+      </intent-filter>
+    </service>
+    <service android:name="md5d0cb87705b0c8222e7e4bf1acd7af6af.MyMessagingService">
+      <intent-filter>
+        <action android:name="com.google.firebase.MESSAGING_EVENT" />
+      </intent-filter>
+    </service>
+    <activity android:label="RegisterActivity" android:name="md5d0cb87705b0c8222e7e4bf1acd7af6af.RegisterActivity" />
+    <activity android:configChanges="orientation|screenSize" android:name="md54cd65ac53ae710bff80022afc423e0f3.MediaPickerActivity" />
+    <activity android:configChanges="keyboardHidden|orientation|screenLayout" android:label="Scanner" android:name="md5bb098716dd46c8e113564e6b42b7cde9.ZxingActivity" />
+    <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="ManoAmigaApp.ManoAmigaApp.mono.MonoRuntimeProvider.__mono_init__" />
+    <!--suppress ExportedReceiver-->
+    <receiver android:name="mono.android.Seppuku">
+      <intent-filter>
+        <action android:name="mono.android.intent.action.SEPPUKU" />
+        <category android:name="mono.android.intent.category.SEPPUKU.ManoAmigaApp.ManoAmigaApp" />
+      </intent-filter>
+    </receiver>
+    <meta-data android:name="android.support.VERSION" android:value="25.4.0" />
+    <provider android:authorities="ManoAmigaApp.ManoAmigaApp.firebaseinitprovider" android:name="com.google.firebase.provider.FirebaseInitProvider" android:exported="false" android:initOrder="100" />
+    <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
+      <intent-filter>
+        <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+        <category android:name="ManoAmigaApp.ManoAmigaApp" />
+      </intent-filter>
+    </receiver>
+    <!-- Internal (not exported) receiver used by the app to start its own exported services
+             without risk of being spoofed. -->
+    <!-- FirebaseInstanceIdService performs security checks at runtime,
+             no need for explicit permissions despite exported="true" -->
+    <service android:name="com.google.firebase.iid.FirebaseInstanceIdService" android:exported="true">
+      <intent-filter android:priority="-500">
+        <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+      </intent-filter>
+    </service>
+    <!-- FirebaseMessagingService performs security checks at runtime,
+             no need for explicit permissions despite exported="true" -->
+    <service android:name="com.google.firebase.messaging.FirebaseMessagingService" android:exported="true">
+      <intent-filter android:priority="-500">
+        <action android:name="com.google.firebase.MESSAGING_EVENT" />
+      </intent-filter>
+    </service>
+    <activity android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:exported="false" />
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+  </application>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
+  <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+  <permission android:name="ManoAmigaApp.ManoAmigaApp.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+  <uses-permission android:name="ManoAmigaApp.ManoAmigaApp.permission.C2D_MESSAGE" />
+</manifest>
